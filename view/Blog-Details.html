@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details - Bites of Brilliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .navbar .brand {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .blog-meta {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .recipe-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .ingredients-list, .instructions-list {
+            padding-left: 20px;
+        }
+
+        .ingredients-list li, .instructions-list li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            <a href="#">Bites of Brilliance</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.php">Home</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="login.php">Login</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <div class="blog-content" id="blogContent">
+        <!-- Content will be dynamically loaded here -->
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="www.x.com"><i class="fab fa-twitter"></i></a>
+            <a href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <span>Bites of Brilliance Food Blog</span>
+    </footer>
+
+    <script>
+        // Sample blog post data
+        const blogPosts = {
+            1: {
+                title: "The Best Chicken Thukpa (Tibetan Noodle Soup) कुखुराको थुक्पा",
+                date: "15 March, 2024",
+                image: "nepal2.jpg",
+                description: "Chicken Thukpa, a comforting Tibetan noodle soup, is perfect for chilly days. The homemade chicken broth, simmered slowly for rich flavor, is healthier and tastier than store-bought stock. Pan-fried chicken adds a delicious char, while the side of tomato chili achar allows everyone to customize the spice level. Whether you like it fiery with extra chutney or prefer a milder version, Chicken Thukpa caters to all tastes, making it a versatile and satisfying meal.",
+                ingredients: [
+                    "2 chicken breasts, sliced",
+                    "200g noodles",
+                    "2 carrots, julienned",
+                    "2 cups spinach",
+                    "1 onion, sliced",
+                    "4 cloves garlic, minced",
+                    "2-inch ginger, minced",
+                    "2 tomatoes, chopped",
+                    "2 tbsp oil",
+                    "Salt and pepper to taste",
+                    "4 cups chicken broth"
+                ],
+                instructions: [
+                    "Heat oil in a large pot and sauté onions until translucent.",
+                    "Add garlic and ginger, cook until fragrant.",
+                    "Add chicken pieces and cook until slightly browned.",
+                    "Add vegetables and cook for 5 minutes.",
+                    "Pour in chicken broth and bring to a boil.",
+                    "Add noodles and cook until tender.",
+                    "Season with salt and pepper.",
+                    "Garnish with fresh cilantro and serve hot."
+                ]
+            },
+            2: {
+                title: "The Best Chatpate (Puffed Rice Salad) चट्पटे",
+                date: "11 March, 2023",
+                image: "nepal3.jpg",
+                description: "Chatpate, a popular Nepali snack, is a perfect mix of crunch, tang, and spice. While every version is unique, the best chatpate is often made by street vendors, who expertly mix ingredients and add a special red sauce, serving it in a newspaper cone with a cardboard spoon. Many locals, including myself, have fond memories of the street carts, especially the bright blue one that came down our street in Nepal, with vendors shouting names of snacks like 'chatpate,' 'aloo nimkee,' and 'pani puri.' With this recipe, you can recreate that delicious street vendor experience at home.",
+                ingredients: [
+                    "2 cups puffed rice (muri)",
+                    "1 onion, finely chopped",
+                    "2 tomatoes, finely chopped",
+                    "1/2 cup roasted peanuts",
+                    "2 green chilies, finely chopped",
+                    "1/4 cup cilantro, chopped",
+                    "1 lemon, juiced",
+                    "1 tsp chaat masala",
+                    "Salt to taste",
+                    "1/2 tsp red chili powder"
+                ],
+                instructions: [
+                    "In a large bowl, combine puffed rice and peanuts.",
+                    "Add chopped onions, tomatoes, and green chilies.",
+                    "Mix in chaat masala, salt, and red chili powder.",
+                    "Add fresh cilantro and lemon juice.",
+                    "Mix well until everything is combined.",
+                    "Adjust seasoning to taste.",
+                    "Serve immediately while the puffed rice is still crispy."
+                ]
+            },
+            3: {
+                title: "Spicy Tomato Jhol Momo टमाटर अचारको झोल मोमो",
+                date: "12 June, 2024",
+                image: "nepal1.jpg",
+                description: "Introducing the Spicy Jhol Momo, a beloved street food from Kathmandu, Nepal. Jhol refers to a thin, flavorful soup that brings momos to life, with many variations, including creamy peanut and sesame-based sauces or tangy tomato versions. I personally love the tomato-based jhol, commonly found in UK restaurants. This recipe features steamed momos in an authentic, spicy tomato sauce made from ripe tomatoes, aromatic garlic, nutty sesame seeds, and a touch of fiery chili, creating a mouthwatering experience that will surely excite your taste buds.",
+                ingredients: [
+                    "2 tablespoon Peanut",
+                    "2 Dried red chilli",
+                    "2 tablespoon Sesame seeds",
+                    "4 tablespoon Vegetable oil",
+                    "4 Tomato Medium sized roughly chopped",
+                    "1 Onion medium sized roughly chopped",
+                    "1 teaspoon Cumin powder",
+                    "½ teaspoon Turmeric powder",
+                    "2 teaspoon Ginger paste",
+                    "2 teaspoon Garlic paste",
+                    "2 Red fresh chilli",
+                    "3 tablespoon Lemon juice",
+                    "1 teaspoon Salt",
+                    "½ teaspoon Ground black pepper",
+                    "1 cup Cold Water",
+                    "4 stalks Fresh coriander",
+                    "1) Chicken Momo 2) Pork Momo 3) Vegetable Momo 4)Buff Momo"
+                ],
+                instructions: [
+                    "Fresh Momos: Steam in an oiled, preheated steamer for 15 minutes.",
+                    "Frozen Momos: Steam in an oiled steamer for 20-25 minutes.",
+                    "Soak dry chilies in warm water for 5 minutes.",
+                    "Dry roast peanuts for 2-3 minutes.",
+                    "Add sesame seeds and roast until lightly browned. Cool completely.",
+                    "Heat oil and sauté chopped chilies, soaked red chili, and onion for 2-4 minutes.",
+                    "Add ginger-garlic paste, cumin, and turmeric. Sauté for 1-2 minutes.",
+                    "Add tomatoes, salt, and pepper. Cook for 3-4 minutes.",
+                    "Cool with 1 cup of cold water.",
+                    "Blend roasted peanuts and sesame seeds into a fine powder.",
+                    "Add the tomato-spice mix, coriander, and lemon juice. Blend until smooth.",
+                    "Adjust water for desired consistency.",
+                    "Place momos in a bowl, pour the jhol over them, and garnish with coriander.",
+                    "Serve immediately."
+                ]
+            },
+            4: {
+                title: "Chicken Chilli Nepali Style चिकन चिली",
+                date: "11 Mar, 2023",
+                image: "nepal4.jpg",
+                description: "Nepali Chicken Chilli is a classic Indo-Chinese fusion dish that has become super popular in Nepali restaurants. It is a dish that is bursting with flavour and a perfect balance of sweet and spicy. The dish's origin is an interesting blend of two culinary cultures - Indian and Chinese - which have come together to create a unique fusion dish. Chicken chilli in Nepal is comparable to the status korean fried chicken has in korea, an easy, dirty, delicious takeout food that satisfies cravings.",
+                ingredients: [
+                    "500 grams Boneless Chicken thigh",
+                    "3 tablespoon Vegetable oil",
+                    "4 Green fresh chilly",
+                    "4 Cloves Garlic Roughly sliced",
+                    "1 Red Bell Pepper Cut into large slices",
+                    "1 Red onion medium sized. Cut into large slices",
+                    "4 stems Spring Onion Roughly sliced into diagonals",
+                    "4 sprigs coriander leaves for garnishing",
+                    "1 tablespoon Corn Flour Mix with 2 tablespoon of cold water",
+                    "4 Red dried chilli remove the seeds if you want to reduce the spiciness but preserve the flavour",
+                    "1 Tomato, ½ Onion roughly choppes",
+                    "2 tablespoon Brown sugar",
+                    "4 tablespoon Light soy sauce",
+                    "2 tablespoon Lemon juice",
+                    "½ teaspoon Cinnamon powder",
+                    "½ teaspoon Timmur powder (Nepali sichuan pepper) optional",
+                    "½ cup Water"
+                ],
+                instructions: [
+                    "Soak dried red chili in water before starting.",
+                    "Mix marinade ingredients into a paste.",
+                    "Cut chicken thighs into bite-sized pieces, add to marinade, and coat evenly.",
+                    "Marinate for at least 30 minutes.",
+                    "Blend soaked chili, tomato, and onion into a fine paste.",
+                    "Mix with soy sauces, tomato puree, brown sugar, lemon juice, timmur powder, water, and cornflour.",
+                    "Set aside.",
+                    "Deep Fry: Heat oil, fry chicken in batches until golden, drain on paper towels.",
+                    "Air Fry: Air fry at 185°C for 25 minutes.",
+                    "Oven Bake: Bake at 190°C for 25 minutes.",
+                    "Heat oil in a wok, stir-fry garlic and green chilies for 15-30 seconds.",
+                    "Add onion, spring onions, and bell peppers; stir-fry for 30 seconds to 1 minute.",
+                    "Mix sauce well, add to veggies, stir for 1-2 minutes.",
+                    "Add chicken, simmer for 3-5 minutes.",
+                    "Mix cornflour with 2 tbsp cold water, add to thicken sauce.",
+                    "Transfer to a dish, garnish with fresh coriander."
+                ]
+            },
+            5: {
+                title: "Easy Potato Curry Nepal Style (Aloo Dum) आलू दम",
+                date: "30 Nov, 2022",
+                image: "nepal5.jpg",
+                description: "Aloo Dum is a type of potato curry, staple dish in every Nepali household, is made by simmering baby potatoes in a flavourful tomato sauce. This recipe, passed down in my family, is easy to make and hard to resist. The potatoes absorb all the aromatic spices from the tomato sauce, making them incredibly delicious. You can enjoy this Aloo Dum Curry on its own as a starter or alongside any type of flatbread.",
+                ingredients: [
+                    "750g Baby potatoes",
+                    "1 tsp Salt",
+                    "½ tsp Turmeric",
+                    "½ tsp Chilli powder",
+                    "1 tsp Cumin powder",
+                    "1 tsp Coriander powder",
+                    "½ tsp Nigella seeds (Kalonji/Kalo Jeera)",
+                    "2 Bay leaves",
+                    "2 Fresh chilies",
+                    "1 tbsp Sesame powder",
+                    "1 tsp Lemon juice",
+                    "1 cup Water",
+                    "Fresh coriander for garnish",
+                    "200g Cherry tomatoes, 3 Dried chilies, 5 Garlic cloves, 1-inch Ginger, 1 Onion",
+                ],
+                instructions: [
+                    "Soak dried chili in warm water for 5 minutes.",
+                    "Boil baby potatoes for 5 minutes, drain, cool, peel, and cut into chunks.",
+                    "Blend tomato chili paste ingredients into a fine paste.",
+                    "Heat 2 tbsp oil, sauté Nigella seeds for 30 seconds, then add bay leaves and fresh chilies.",
+                    "Add tomato chili paste and sauté for 1-2 minutes.",
+                    "Add turmeric, cumin, coriander, and chili powder, sauté until oil separates.",
+                    "Add potatoes, shallow fry for 2-3 minutes, then add ½ cup water and boil to desired consistency.",
+                    "Add lemon juice and sesame powder, toss gently.",
+                    "Garnish with coriander and serve.",
+                ]
+            },
+            6: {
+                title: "Aloo ko Achar (Nepali Potato Salad) आलुको अचार",
+                date: "21 Jul, 2023",
+                image: "nepal6.jpg",
+                description: "This delightful Nepali dish affectionately known as Aloo ko Achar, otherwise translated as Nepali Potato Salad or Aloo Sadheko celebrates the humble potato in all its glory. This warming salad is a fusion of boiled potatoes and zesty spices all harmonising to create flavours that are both bold and fresh. Aloo ko Achar's versatility allows it to be savoured as a light meal, or as a companion to staples like rice or roti. You can also serve it as a colourful complement to main courses.",
+                ingredients: [
+                    "500g Baby potatoes, boiled and halved",
+                    "1 Red onion, finely sliced",
+                    "5 Stems fresh coriander",
+                    "1 tsp Garlic paste",
+                    "1 tsp Ginger paste",
+                    "2 Fresh chilies, finely chopped",
+                    "2 tbsp Lemon juice",
+                    "2 tbsp Toasted sesame seed powder",
+                    "1 tsp Cumin, Coriander powder",
+                    "½ tsp Timmur (Nepali Sichuan pepper), 1 tsp Salt",
+                    "3 tbsp Vegetable oil",
+                    "½ tsp Fenugreek seeds",
+                    "½ tsp Turmeric powder",
+                    "2 Dried red chilies",
+                ],
+                instructions: [
+                    "Peel and boil potatoes for 10-15 minutes until tender. Cool, then cut into chunks.",
+                    "Add potatoes, onion, chilies, coriander, garlic paste, ginger paste, lemon juice, and salt to a bowl.",
+                    "Mix in sesame seed powder, cumin, coriander, and timmur.",
+                    "Heat oil, fry fenugreek seeds until dark brown. Add red chilies and turmeric, cook for 15 seconds.",
+                    "Pour the oil over the potato mixture.",
+                    "Mix well, ensuring potatoes are coated. Let sit for 15-20 minutes.",
+                    "Serve as a side dish or appetizer.",
+                ]
+            },
+            7: {
+                title: "Aloo Chop Nepal Style (Potato Croquette) आलु चप",
+                date: "20 Dec, 2022",
+                image: "nepal7.jpg",
+                description: "Aloo chop is a famous and much loved street snack. A spiced potato croquette/fritter that is irresistibly crispy on the outside and moist on the inside. I have fond memories of this growing up when mum used to make it as an afternoon treat to tide us over until dinner. This snack comes alive especially when dipped in a spiced sweet and tangy sauce. My favourite combination being with a tamarind sauce. Every family has their own recipe, this is my family's recipe that no one who has come across it has been able to resist.",
+                ingredients: [
+                    "500g Potatoes, peeled and boiled",
+                    "2 Medium onions, finely diced",
+                    "2 Green chilies, finely sliced (optional)",
+                    "2 tsp Ginger paste, 1 tsp Garlic paste",
+                    "1 tsp Cumin, Coriander powder",
+                    "1 tsp Salt",
+                    "5 sprigs Fresh coriander, finely chopped",
+                    "½ tsp Black pepper, Chili powder",
+                    "1 cup Gram flour (Besan/Chickpea flour)",
+                    "½ cup Cornflour (or rice flour)",
+                    "½ tsp Turmeric powder",
+                    "½ cup Water (adjust for consistency)",
+                ],
+                instructions: [
+                    "Peel and boil potatoes for 10 minutes until soft.",
+                    "Mash the potatoes, leaving a few lumps.",
+                    "Mix all dry ingredients for the batter.",
+                    "Gradually add water, whisk until smooth with no lumps. Aim for double cream consistency.",
+                    "Add onion, green chili, ginger paste, garlic paste, coriander, cumin, coriander powder, turmeric, salt, and black pepper to mashed potatoes. Mix well.",
+                    "Form the potato mix into balls, then flatten into small cakes.",
+                    "Heat oil in a deep frying dish. Test with a small batter drop; it should sizzle.",
+                    "Coat the potato cakes in batter, then fry for 2-3 minutes per side until golden brown.",
+                    "Drain excess oil with paper towels.",
+                    "Serve with achar or chutney."
+                ]
+            },
+            8: {
+                title: "Sukuti Sadheko (Dried Meat Spicy Salad) साँदेको सुकुटी",
+                date: "31 Aug, 2023",
+                image: "nepal12.jpg",
+                description: "Sukuti Sadheko is a truly unique Nepali dish that offers such a wonderful range of flavours and textures. Imagine crispy pieces of dried meat, mixed with spices that tingle your taste buds, offering a dance of flavors in every bite. For those new to this delicacy, Sukuti is smoke- dried meat. This technique ensures not just preservation but imparts the meat with a rich, umami taste tinged with an aromatic smokiness. The Sadheko preparation elevates this dried meat by adding fresh tomatoes, zesty garlic, and the invigorating punch of ginger.",
+                ingredients: [
+                    "200 grams Sukuti (dry meat of choice, like buff)",
+                    "¼ cup Vegetable oil or mustard oil (for frying)",
+                    "½ Onion (medium-sized, finely diced)",
+                    "5 stalks Fresh coriander/cilantro (finely chopped)",
+                    "1 teaspoon Salt",
+                    "2 Tomatoes (medium-sized, roughly chopped)",
+                    "3 Green chilies (adjust to taste)",
+                    "8 cloves Garlic",
+                    "1 tablespoon Ginger paste",
+                    "1 teaspoon Cumin powder",
+                    "2 tablespoons Lemon juice",
+                    "½ teaspoon Timmur powder (Nepali Sichuan Pepper)"
+                ],
+                instructions: [
+                    "Soak sukuti in hot water for 30 minutes, drain, slice, squash, soak again for 15 minutes, and drain.",
+                    "Heat oil, fry sukuti for 3-5 minutes, and move to a mixing bowl.",
+                    "Fry garlic, tomatoes, and chilies for 2-3 minutes, then blend into a paste.",
+                    "Mix in ginger paste, cumin powder, timmur powder, and lemon juice.",
+                    "Pour paste over sukuti, add onions, coriander, and salt. Mix well.",
+                    "Garnish with coriander and serve.",
+                ]
+            },
+            9: {
+                title: "Easy Chicken Momo Dumplings (Sajilo Kukhura ko Momo) सजिलो कुखुराको म:म:",
+                date: "21 Nov, 2023",
+                image: "nepal13.jpg",
+                description: "This quick and easy Nepali Chicken Momo recipe has been perfected over time to offer a straightforward and easy approach to making these beloved dumplings. This recipe simplifies the momo-making process while preserving all the authentic, delicious flavours that make momos a national treasure of Nepal. Get ready to enjoy authentic Nepali dish right at home, made surprisingly simple. This recipe proves that you don’t need fancy or complicated ingredients to create something mouthwateringly good. With basic items and easy-to-follow steps, you'll transform simple ingredients into these traditional Nepali dumplings, bursting with flavor in every bite. It's a testament to the idea that great taste comes from simplicity. It's perfect for busy days or when you're craving something special. Happy momo making!",
+                ingredients: [
+                    "400 grams Plain flour",
+                    "200 mls Warm water",
+                    "400 grams Chicken mince",
+                    "300 grams White onions (finely chopped or grated)",
+                    "10 stalks Fresh coriander (finely chopped)",
+                    "1 tablespoon Ginger paste",
+                    "1 teaspoon Black pepper",
+                    "2 tablespoons Vegetable oil",
+                    "2 tablespoons Cornflour (mixed with cold water)",
+                    "6 tablespoons Cold water",
+                    "2 tablespoons Soy sauce",
+                    "2 Green chilies (finely chopped)"
+                ],
+                instructions: [
+                    "In a large bowl, add flour and gradually pour warm water while mixing until a solid dough forms.",
+                    "Knead the dough until soft and pliable, cover, and let it rest for 10-15 minutes.",
+                    "In a bowl, mix chicken mince, onions, coriander, ginger paste, salt, pepper, oil, cornflour mixture, water, soy sauce, and chilies.",
+                    "On a floured surface, knead the dough briefly and divide it into four pieces.",
+                    "Roll each piece into a cylinder, flatten with a rolling pin, and cut out rounds with a cup.",
+                    "Roll each piece into a cylinder, flatten with a rolling pin, and cut out rounds with a cup.",
+                    "Dust each wrapper with flour and keep them covered.",
+                    "Place a tablespoon of filling in each wrapper, pleat, and seal the edges.",
+                    "Repeat with all wrappers and filling.",
+                    "Grease a steamer, place momos inside, and steam for 15 minutes.",
+                    "Serve the momos hot with your favorite dip. Enjoy!"
+                ]
+            },
+            10: {
+                title: "Buckwheat Pancake With Ginger and Cinnamon (Guliyo Phapar Ko Roti) गुलियो फापरको रोटि",
+                date: "13 Mar, 2023",
+                image: "nepal14.jpg",
+                description: "Buckwheat Pancakes is an inventive take on the tradition buckwheat crepes/ rotis that is a beloved staple of the Thakali community in Nepal. Buckwheat is a highly versatile crop that grows effortlessly in low fertility soil, making it a common staple in Nepal's highlands and lowlands. The pancakes are gluten free and high in protein with the added bonus of being delicious! Buckwheat has a naturally nutty and citrus taste which complements the flavours found in ginger and cinnamon.",
+                ingredients: [
+                    "2 cups Buckwheat flour",
+                    "2 cups Water",
+                    "8 teaspoons Brown sugar",
+                    "3 teaspoons Baking powder",
+                    "2 tablespoons Ghiu (clarified butter/ghee)",
+                    "1 teaspoon Cinnamon powder",
+                    "1 teaspoon Ginger paste"
+                ],
+                instructions: [
+                    "In a large bowl, mix buckwheat flour, cinnamon powder, sugar, and baking powder.",
+                    "Gradually add water while mixing to form a thick, smooth batter.",
+                    "Add ginger paste and whisk thoroughly to remove lumps.",
+                    "Let the batter rest for 5-10 minutes.",
+                    "Heat a non-stick or cast-iron pan over medium heat and lightly grease with ghiu.",
+                    "Pour half a ladle of batter into the pan and cook for 2-3 minutes until golden brown.",
+                    "Flip the pancake and cook the other side for another 2-3 minutes.",
+                    "Repeat with the remaining batter.",
+                    "Serve the pancakes with your favorite toppings like cream, butter, fresh berries, or honey. Enjoy!"
+                ]
+            },
+            11: {
+                title: "Pork and Spinach Curry (Rayo Saag Ra Sungur Ko Masu) रायो साग र सुंगूर को मासु",
+                date: "31 Mar, 2023",
+                image: "nepal8.jpg",
+                description: "Introducing Pork and Spinach Curry (Rayo Saag ra Pork), an authentic Nepali dish originating from the Kirati community that is super easy to make. Prepared with tender pork and broad leaf mustard greens (a variety of spinach) This hearty and wholesome dish is full of flavour and incredibly aromatic. The broadleaf mustard greens complement the pork beautifully. Characterised by their peppery yet mild taste, broadleaf mustard greens infuse the dish with a peppery and zesty touch while absorbing the scrumptious fat and flavours from the pork. Growing up with this dish, I remember savouring the spinach even more than the meat, carefully picking out the tender green leaves from the curry to enjoy them with a heaping spoonful of steamed rice.",
+                ingredients: [
+                    "1 kg Pork (pork shoulder or pork belly, ideally 50% each), cut into bite-sized pieces",
+                    "1 bunch Mustard greens (Rayo Saag), washed and roughly chopped (approx. 10 leaves)",
+                    "1 medium-sized Onion, finely chopped",
+                    "2 Tomatoes, finely chopped",
+                    "1 tablespoon Garlic paste",
+                    "1 tablespoon Ginger paste",
+                    "2 tablespoons Vegetable oil",
+                    "1 teaspoon Salt",
+                    "2 tablespoons Soy sauce",
+                    "2 cups Water",
+                    "1 teaspoon Cumin, Coriander powder",
+                    "1 teaspoon Turmeric",
+                    "1 teaspoon Chilli powder"
+                ],
+                instructions: [
+                    "Add the pork to a pan over medium-high heat. Stir occasionally until the pork releases its fat and turns golden brown. This will take around 10-15 minutes, depending on heat and pork size.",
+                    "Add the chopped onions and cook until they turn tender and lightly golden (about 3-5 minutes).",
+                    "Stir in the spice mix (cumin, coriander, turmeric, and chilli powder) and combine well.",
+                    "Add the garlic paste and ginger paste, mixing thoroughly.",
+                    "Stir in the diced tomatoes and soy sauce. Cook for 3-5 minutes until the tomatoes break down into a rough paste consistency.",
+                    "Add 2 cups of water and cover the pan. Let it simmer for 15 minutes over low/medium heat, stirring every 5 minutes. Be sure to deglaze the pan by scraping up the browned bits at the bottom to enhance the flavor.",
+                    "If the curry is too watery after 15 minutes, cook uncovered for an additional 2-3 minutes to reduce the broth.",
+                    "Add the chopped mustard greens to the pan, cover with a lid, and cook for 3 minutes until they wilt down.",
+                    "Uncover the lid and mix the mustard greens thoroughly with the pork.",
+                    "Dish out the curry with steaming hot rice or warm roti. Enjoy your flavorful dish!"
+                ]
+            },
+            
+            12: {
+                title: "Simple and Easy Chamre (Turmeric fried rice) चाम्रे भात",
+                date: "13 Jun, 2024",
+                image: "nepal10.jpg",
+                description: "Chamre is a delicious turmeric fried rice from Nepal. This dish is all about simple, wholesome ingredients coming together in a burst of flavor and color. In the eastern region of Nepal, where my family is from, Chamre is a savory dish. Imagine fluffy rice cooked in rich ghiu (ghee/clarified butter), infused with the golden glow of turmeric powder. The turmeric not only gives a cheerful yellow hue but also adds a subtle, earthy flavor that makes the rice special. The aroma of cumin seeds and fenugreek seeds sizzling in the pan adds an earthy depth, while a pinch of salt ties everything together.",
+                ingredients: [
+                    "2 cups Basmati rice (for extra softness and fragrance)",
+                    "3 tablespoons Ghee (Clarified butter)",
+                    "1 teaspoon Turmeric powder",
+                    "1 teaspoon Cumin seeds",
+                    "½ teaspoon Fenugreek seeds",
+                    "2 teaspoons Minced garlic",
+                    "1 teaspoon Salt",
+                    "2 stalks Fresh coriander (for garnish)"
+                ],
+                instructions: [
+                    "Rinse rice under cold water to remove excess starch. Swirl with your hand, and repeat 3-4 times until the water is clear.",
+                    "Soak rice in water for 20-30 minutes for even cooking and fluffiness.",
+                    "Heat ghee in a large pan over medium heat until fragrant but not smoking.",
+                    "Add cumin seeds and fenugreek seeds, cook for 30 seconds until they pop.",
+                    "Add minced garlic and turmeric powder, cooking for 15-30 seconds.",
+                    "Drain soaked rice and add to the pan. Stir-fry for 3-4 minutes to coat rice with ghee and spices.",
+                    "Season with salt, then add 2 cups of water, making sure it covers the rice.",
+                    "Cover the pan with a lid, reduce heat to low, and cook until the water is absorbed (5-10 minutes).",
+                    "Check rice for doneness. If undercooked, add ½ cup of water, cover, and repeat the process 2-3 times until fully cooked and tender.",
+                    "Serve hot, garnished with fresh coriander. Enjoy with your favorite Nepali dishes!"
+                ]
+            },
+            // Add more blog posts as needed
+        };
+
+        // Get blog post ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        // Load blog post content
+        function loadBlogPost() {
+            const post = blogPosts[postId];
+            if (!post) {
+                document.getElementById('blogContent').innerHTML = '<h2>Blog post not found</h2>';
+                return;
+            }
+
+            const content = `
+                <div class="blog-header">
+                    <img src="${post.image}" alt="${post.title}">
+                    <h1>${post.title}</h1>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> ${post.date}</span>
+                    </div>
+                </div>
+                <p>${post.description}</p>
+                <div class="recipe-section">
+                    <h2>Ingredients</h2>
+                    <ul class="ingredients-list">
+                        ${post.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <h2>Instructions</h2>
+                    <ol class="instructions-list">
+                        ${post.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
+                    </ol>
+                </div>
+            `;
+
+            document.getElementById('blogContent').innerHTML = content;
+        }
+
+        // Load content when page loads
+        window.onload = loadBlogPost;
+    </script>
+</body>
+</html>

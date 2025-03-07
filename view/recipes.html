@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Food Categories - Bites of Brilliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --Playfair: 'Playfair Display', serif;
+            --Quicksand: 'Quicksand', sans-serif;
+            --dark: #3c393d;
+            --exDark: #2b2b2b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--Quicksand);
+        }
+
+        body {
+            line-height: 1.4;
+            color: var(--dark);
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 2rem;
+            text-decoration: none;
+            font-family: var(--Playfair);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.4rem 0.8rem;
+            transition: opacity 0.5s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 2rem 1.2rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .title h1 {
+            font-family: var(--Playfair);
+            font-size: 2.4rem;
+            color: var(--dark);
+        }
+
+        .category {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .category h2 {
+            font-family: var(--Playfair);
+            color: var(--dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .category ul {
+            list-style: none;
+        }
+
+        .category li {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: #fff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .category li:hover {
+            background: #f0f0f0;
+            transform: translateX(5px);
+        }
+
+        .category a {
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .sidebar {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            font-family: var(--Playfair);
+            color: var(--dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .recent-posts li {
+            list-style: none;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: #f9f9f9;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .recent-posts li:hover {
+            background: #f0f0f0;
+        }
+
+        .recent-posts a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: var(--exDark);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.4rem;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            border: 2px solid #fff;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.5s ease;
+        }
+
+        .social-links a:hover {
+            background: #fff;
+            color: var(--exDark);
+        }
+
+        footer span {
+            display: block;
+            font-family: var(--Playfair);
+            letter-spacing: 2px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Bites of Brilliance</a>
+        <div class="nav-links">
+            <a href="index.php">Home</a>
+            <a href="#">Recipes</a>
+            <a href="login.php">Login</a>
+            <a href="about.html">About</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="main-content">
+            <div class="title">
+                <h1>Nepali Food Categories</h1>
+            </div>
+
+            <div class="category">
+                <h2>Main Dishes</h2>
+                <ul>
+                    <li><a href="/FoodBlog/view/Blog-Details.html?id=6">Dal Bhat Tarkari</a></li>
+                    <li><a href="/FoodBlog/view/Blog-Details.html?id=7">Thukpa</a></li>
+                    <li><a href="/FoodBlog/view/Blog-Details.html?id=8">Dhindo</a></li>
+                    <li><a href="/FoodBlog/view/Blog-Details.html?id=9">MoMo</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Street Food & Snacks</h2>
+                <ul>
+                    <li><a href="#">Pulau</a></li>
+                    <li><a href="#">Chatpate</a></li>
+                    <li><a href="#">Aloo Chop</a></li>
+                    <li><a href="#">Samosa</a></li>
+                    <li><a href="#">Sel Roti</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Curries & Sides</h2>
+                <ul>
+                    <li><a href="#">Aloo Dum</a></li>
+                    <li><a href="#">Mushroom Curry</a></li>
+                    <li><a href="#">Chicken Curry</a></li>
+                    <li><a href="#">Saag</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Pickles & Chutneys</h2>
+                <ul>
+                    <li><a href="#">Aloo ko Achar</a></li>
+                    <li><a href="#">Tomato Achar</a></li>
+                    <li><a href="#">Golbheda ko Achar</a></li>
+                </ul>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Recent Posts</h3>
+            <ul class="recent-posts">
+                <li><a href="/FoodBlog/view/Blog-Details.html?id=1">The Best Chicken Thukpa</a></li>
+                <li><a href="/FoodBlog/view/Blog-Details.html?id=2">The Best Chatpate</a></li>
+                <li><a href="/FoodBlog/view/Blog-Details.html?id=3">Spicy Tomato Jhol MoMo</a></li>
+                <li><a href="/FoodBlog/view/Blog-Details.html?id=4">Chicken Chilli Nepali Style</a></li>
+                <li><a href="/FoodBlog/view/Blog-Details.html?id=5">Easy Potato Curry Nepali Style</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="www.x.com"><i class="fab fa-twitter"></i></a>
+            <a href="www.instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <span>Bites of Brilliance Food Blog</span>
+    </footer>
+</body>
+</html>

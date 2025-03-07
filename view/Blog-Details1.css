@@ -1,0 +1,232 @@
+/* Global Styles */
+:root {
+    --primary-color: #333;
+    --secondary-color: #f4f4f4;
+    --accent-color: #ff6f61;
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+.navbar-nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    color: #ffd700;
+}
+/* Blog Section Styles */
+.blog {
+    padding: 60px 0;
+    background-color: var(--secondary-color);
+}
+
+.blog .title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blog .title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.blog .title p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.blog-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.blog-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+    transform: translateY(-5px);
+}
+
+.blog-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover .blog-img img {
+    transform: scale(1.1);
+}
+
+.blog-img span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.blog-text {
+    padding: 20px;
+}
+
+.blog-text span {
+    color: #888;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.blog-text h2 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.blog-text p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.blog-text a {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.blog-text a:hover {
+    color: darken(var(--accent-color), 10%);
+}
+
+/* Blog Details Page Styles */
+.blog-details {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.blog-details .container {
+    max-width: 800px;
+}
+
+.blog-details h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.blog-detail-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blog-details h2 {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin: 25px 0 15px;
+}
+
+.blog-details ul {
+    list-style-type: disc;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.blog-details p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .blog-content {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-details h1 {
+        font-size: 2rem;
+    }
+
+    .blog-details h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Footer Styles (consistent with the original design) */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-links {
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
