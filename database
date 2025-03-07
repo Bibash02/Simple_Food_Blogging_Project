@@ -1,1 +1,46 @@
+-- Create database
+CREATE DATABASE IF NOT EXISTS bites_of_brilliance;
+USE food_blog;
 
+-- Create blog_post table
+CREATE TABLE IF NOT EXISTS blog_post (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    image_url VARCHAR(255) NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    category VARCHAR(100) NOT NULL,
+    user_id INT(11) NOT NULL,
+    featured_image VARCHAR(255) NULL,
+    ingredients TEXT NULL,
+    instructions TEXT NULL,
+    tags VARCHAR(255) NULL,
+    INDEX (user_id)
+);
+
+-- Create users table
+CREATE TABLE IF NOT EXISTS users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    bio TEXT NULL,
+    role ENUM('user', 'admin') NULL,
+    profile_image VARCHAR(255) NULL,
+    INDEX (email)
+);
+
+-- Create comments table
+CREATE TABLE IF NOT EXISTS comments (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    post_id INT(11) NOT NULL,
+    user_name VARCHAR(100) NOT NULL,
+    comment TEXT NOT NULL,
+    rating INT(11) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'approved', 'rejected') NULL DEFAULT 'pending',
+    INDEX (post_id),
+    FOREIGN KEY (post_id) REFERENCES blog_post(id) ON DELETE CASCADE
+);
